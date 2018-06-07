@@ -10,9 +10,9 @@ package com.mowitnow.automaticlawnmower;
  */
 public class GridPosition {
 	
-	private Integer x;
-	private Integer y;
-	private Orientation orientation;
+	private final Integer x;
+	private final Integer y;
+	private final Orientation orientation;
 	/**
 	 * 
 	 * @param x the horizontal coordinate
