@@ -4,7 +4,9 @@ import java.util.Queue;
 
 /**
  * Lawn mower used to mow a rectangular surface divided in a grid.
- * Lawn mower has a position in the grid
+ * Lawn mower has a position in the grid and a list of instructions
+ * @see Instruction
+ * @see GridPosition
  * @author galbini
  *
  */
