@@ -11,6 +11,10 @@ import com.mowitnow.automaticlawnmower.Orientation;
  * if orientation is W so mower move to x - 1.
  */
 public class A implements Instruction {
+	
+	protected A() {
+		
+	}
 
 	@Override
 	public GridPosition nextPosition(GridPosition position) {

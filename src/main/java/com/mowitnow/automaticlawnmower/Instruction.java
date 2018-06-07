@@ -10,10 +10,19 @@ package com.mowitnow.automaticlawnmower;
  *
  */
 public interface Instruction {
+	public enum InstructionType {
+		A,
+		D,
+		G
+	}
+	
 	/**
 	 * Compute the next position
 	 * @param position the current position
 	 * @return the new position
 	 */
 	public GridPosition nextPosition(GridPosition position);
+
+	
 }
+

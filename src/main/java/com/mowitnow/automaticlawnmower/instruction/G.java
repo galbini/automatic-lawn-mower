@@ -8,6 +8,11 @@ import com.mowitnow.automaticlawnmower.Instruction;
  *
  */
 public class G implements Instruction {
+	
+	protected G() {
+		
+	}
+	
 	@Override
 	public GridPosition nextPosition(GridPosition position) {
 		if( position == null ) throw new IllegalArgumentException("position cannot be null");
