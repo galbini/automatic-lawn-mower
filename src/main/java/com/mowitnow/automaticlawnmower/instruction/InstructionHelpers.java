@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.mowitnow.automaticlawnmower.Orientation;
 /**
- * Contain the orientation movement for d (right turn) anf g (left turn)
+ * Contain the orientation movement for d (right turn) and g (left turn)
  * @author galbini
  *
  */

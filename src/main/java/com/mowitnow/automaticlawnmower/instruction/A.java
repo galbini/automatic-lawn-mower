@@ -26,7 +26,7 @@ public class A implements Instruction {
 		}else if(Orientation.W.equals(position.getOrientation())){
 			return new GridPosition(position.getX()-1, position.getY(), position.getOrientation());
 		}else{
-			throw new RuntimeException("Orientation not defined "+position.getOrientation());
+			throw new RuntimeException("Orientation not managed "+position.getOrientation());
 		}
 	}
 }

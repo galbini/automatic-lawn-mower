@@ -12,7 +12,7 @@ public class LawnMower {
 	private GridPosition position;
 	private final Queue<Instruction> instructions;
 	/**
-	 * The lawn mower is initialized with its initial position.
+	 * The lawn mower is initialized with its initial position and all instructions.
 	 * @param initialPosition the initial position on the grid.
 	 * @param instructions the list of all instructions.
 	 */
