@@ -45,7 +45,7 @@ public class LawnMower {
 		
 		instructions.forEach(i -> {
 			GridPosition newPosition = i.nextPosition(position);
-			logger.info("new position is "+newPosition.toString());
+			logger.fine("new position is "+newPosition.toString());
 			if(validator.validate(position, newPosition)){
 				validator.addUsedCoordinate(newPosition);
 				GridPosition oldPosition = position;
