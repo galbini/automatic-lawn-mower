@@ -1,4 +1,4 @@
-## Automatic lawn mower
+## Automatic lawn mowers
 
 This project is a Gradle project to play with several automatic lawn mowers.
 The automatic lawn mowers move on a grid where bottom left corner is (0,0) and the top right corner is defined in a file.
