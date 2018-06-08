@@ -23,7 +23,12 @@ public class App {
     		
     		App app = new App();
     		status = app.run(args[0]);
-    		logger.info(app.getFinalMessage());
+    		if(status == 0){
+    			logger.info(app.getFinalMessage());
+    		}else{
+    			logger.severe(app.getFinalMessage());
+    		}
+    		
     	}catch (Exception e) {
 			logger.severe("Problem during execution "+e.getMessage());
 			status = -1;
@@ -39,7 +44,7 @@ public class App {
     
     /**
      * Load the file, create mowers and run instructions for each mower
-     * 
+     * @param filePath the path to file with data
      * @return 0 if all is good otherwise -1
      */
     public int run(String filePath){
@@ -50,7 +55,6 @@ public class App {
     		});
         	return 0;
     	}catch(Exception e){
-    		logger.severe("Problem during execution : "+e.getMessage());
     		finalMessage = "Problem during execution : "+e.getMessage();
     		return 1;
     	}    		    	

@@ -37,5 +37,9 @@ repositories {
 apply plugin: 'eclipse'
 
 run {
-  args = [ "${file}" ]
+   if (project.hasProperty("file")) {
+         args = [ "${file}" ]
+    }
 }
+  
+ 
