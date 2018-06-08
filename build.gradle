@@ -35,3 +35,7 @@ repositories {
 
 
 apply plugin: 'eclipse'
+
+run {
+  args = [ "${file}" ]
+}
