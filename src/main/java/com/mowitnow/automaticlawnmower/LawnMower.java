@@ -1,8 +1,6 @@
 package com.mowitnow.automaticlawnmower;
 
 import java.util.List;
-import java.util.Queue;
-import java.util.Set;
 import java.util.logging.Logger;
 
 /**
