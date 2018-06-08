@@ -9,8 +9,13 @@ import com.mowitnow.automaticlawnmower.Instruction.InstructionType;
  *
  */
 public class InstructionFactory {
-	
+	/**
+	 * Get the instruction for a instructionType
+	 * @param instructionType the type of the instruction (A, G or D)
+	 * @return an instance of the instruction type.
+	 */
 	public static Instruction getInstruction(InstructionType instructionType){
+		if(instructionType == null ) throw new IllegalArgumentException("instructionType cannot be null");
 		
 		switch (instructionType) {
 		case A:

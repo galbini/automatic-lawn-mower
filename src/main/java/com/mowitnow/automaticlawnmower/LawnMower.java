@@ -24,7 +24,10 @@ public class LawnMower {
 	 * @param validator the grid position validator
 	 */
 	public LawnMower(GridPosition initialPosition, Queue<Instruction> instructions, GridPositionValidator validator) {
-		super();
+		if( initialPosition == null ) throw new IllegalArgumentException("initialPosition cannot be null");
+		if( instructions == null ) throw new IllegalArgumentException("instructions cannot be null");
+		if( validator == null ) throw new IllegalArgumentException("validator cannot be null");
+		
 		this.position = initialPosition;
 		this.instructions = instructions;
 		this.validator = validator;
@@ -32,14 +35,19 @@ public class LawnMower {
 	
 	/**
 	 * Execute all the instructions and return the last position on the grid
-	 * @return
+	 * @return the last grid position
 	 */
 	public GridPosition run(){
 		
 		instructions.forEach(i -> {
 			GridPosition newPosition = i.nextPosition(position);
-			if(validator.validate(newPosition)){
+			logger.info("new position is "+newPosition.toString());
+			if(validator.validate(position, newPosition)){
+				validator.addUsedCoordinate(newPosition);
+				GridPosition oldPosition = position;
 				position = newPosition;
+				validator.removeUnusedCoordinate(oldPosition);
+				
 			}else{
 				logger.warning("Position is not valid "+newPosition.toString()+" keep on the current position");
 				//if position is not valid, mower keep at the current position and execute next instruction

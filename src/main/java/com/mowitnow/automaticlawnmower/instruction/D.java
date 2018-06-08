@@ -5,10 +5,10 @@ import com.mowitnow.automaticlawnmower.Instruction;
 
 /**
  * turns mower to the right with a 90°
- * N -> E
- * E -> S
- * S -> W
- * W -> N
+ * N to E
+ * E to S
+ * S to W
+ * W to N
  * @author galbini
  *
  */
