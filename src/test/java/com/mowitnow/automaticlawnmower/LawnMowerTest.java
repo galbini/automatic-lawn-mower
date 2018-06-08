@@ -77,5 +77,42 @@ public class LawnMowerTest {
 		assertEquals(Integer.valueOf(1), lastPosition.getY());
 		assertEquals(Orientation.E, lastPosition.getOrientation());		
 	}
+	
+	/**
+	 * 5 5
+	 * 3 3 E 
+	 * AADAADADDA
+	 * 4 1 E because 5 3 E is already busy
+	 */
+	@Test
+	public void testSecondMowerButOnePositionIsAlreadyOccupied() {
+		
+		GridPosition initialPosition = new GridPosition(3, 3, Orientation.E);
+		
+		GridPosition occupiedPosition = new GridPosition(5, 3, Orientation.E);
+		
+		GridPositionValidator validator = new GridPositionValidator(5, 5);
+		validator.addUsedCoordinate(occupiedPosition);
+		
+		Queue<Instruction> instructions = new LinkedList<>();
+		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.D));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.D));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.D));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.D));
+		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
+		
+		LawnMower mower = new LawnMower(initialPosition, instructions, validator);
+		
+		GridPosition lastPosition = mower.run();
+		
+		assertEquals(Integer.valueOf(4), lastPosition.getX());
+		assertEquals(Integer.valueOf(1), lastPosition.getY());
+		assertEquals(Orientation.E, lastPosition.getOrientation());		
+	}
 
 }
