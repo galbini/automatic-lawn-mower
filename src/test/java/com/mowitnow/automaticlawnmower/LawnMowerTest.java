@@ -3,6 +3,7 @@ package com.mowitnow.automaticlawnmower;
 import static org.junit.Assert.*;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import org.junit.Test;
@@ -24,7 +25,7 @@ public class LawnMowerTest {
 		GridPosition initialPosition = new GridPosition(1, 2, Orientation.N);
 		GridPositionValidator validator = new GridPositionValidator(5, 5);
 		
-		Queue<Instruction> instructions = new LinkedList<>();
+		List<Instruction> instructions = new LinkedList<>();
 		instructions.add(InstructionFactory.getInstruction(InstructionType.G));
 		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
 		instructions.add(InstructionFactory.getInstruction(InstructionType.G));
@@ -57,7 +58,7 @@ public class LawnMowerTest {
 		GridPositionValidator validator = new GridPositionValidator(5, 5);
 		
 		
-		Queue<Instruction> instructions = new LinkedList<>();
+		List<Instruction> instructions = new LinkedList<>();
 		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
 		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
 		instructions.add(InstructionFactory.getInstruction(InstructionType.D));
@@ -94,7 +95,7 @@ public class LawnMowerTest {
 		GridPositionValidator validator = new GridPositionValidator(5, 5);
 		validator.addUsedCoordinate(occupiedPosition);
 		
-		Queue<Instruction> instructions = new LinkedList<>();
+		List<Instruction> instructions = new LinkedList<>();
 		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
 		instructions.add(InstructionFactory.getInstruction(InstructionType.A));
 		instructions.add(InstructionFactory.getInstruction(InstructionType.D));

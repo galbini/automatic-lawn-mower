@@ -1,6 +1,8 @@
 package com.mowitnow.automaticlawnmower;
 
+import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -16,14 +18,14 @@ public class LawnMower {
 	private Logger logger = Logger.getLogger(LawnMower.class.toString());
 	private GridPosition position;
 	private final GridPositionValidator validator;
-	private final Queue<Instruction> instructions;
+	private final List<Instruction> instructions;
 	/**
 	 * The lawn mower is initialized with its initial position and all instructions.
 	 * @param initialPosition the initial position on the grid.
 	 * @param instructions the list of all instructions.
 	 * @param validator the grid position validator
 	 */
-	public LawnMower(GridPosition initialPosition, Queue<Instruction> instructions, GridPositionValidator validator) {
+	public LawnMower(GridPosition initialPosition, List<Instruction> instructions, GridPositionValidator validator) {
 		if( initialPosition == null ) throw new IllegalArgumentException("initialPosition cannot be null");
 		if( instructions == null ) throw new IllegalArgumentException("instructions cannot be null");
 		if( validator == null ) throw new IllegalArgumentException("validator cannot be null");
@@ -31,6 +33,8 @@ public class LawnMower {
 		this.position = initialPosition;
 		this.instructions = instructions;
 		this.validator = validator;
+		
+		validator.addUsedCoordinate(initialPosition);
 	}
 	
 	/**

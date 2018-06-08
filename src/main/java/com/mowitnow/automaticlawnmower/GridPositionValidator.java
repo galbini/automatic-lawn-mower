@@ -18,7 +18,7 @@ public class GridPositionValidator {
 	 * @param maxX : the x coordinate of the top right corner of the grid.
 	 * @param maxY : the y coordinate of the top right corner of the grid.
 	 */
-	GridPositionValidator(Integer maxX, Integer maxY) {
+	public GridPositionValidator(Integer maxX, Integer maxY) {
 		if( maxX == null ) throw new IllegalArgumentException("maxX cannot be null");
 		if( maxY == null ) throw new IllegalArgumentException("y cannot be null");
 		
