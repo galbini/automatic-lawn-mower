@@ -4,11 +4,13 @@ import com.mowitnow.automaticlawnmower.GridPosition;
 import com.mowitnow.automaticlawnmower.Instruction;
 import com.mowitnow.automaticlawnmower.Orientation;
 /**
- * moves mower of one box in the direction it faces
- * if orientation is N so mower move to y + 1.
- * if orientation is S so mower move to y - 1.
- * if orientation is E so mower move to x + 1.
- * if orientation is W so mower move to x - 1.
+ * Moves mower of one box in the direction it faces
+ * <ul>
+ * <li>if orientation is N so mower move to y + 1.
+ * <li>if orientation is S so mower move to y - 1.
+ * <li>if orientation is E so mower move to x + 1.
+ * <li>if orientation is W so mower move to x - 1.
+ * </ul>
  */
 public class A implements Instruction {
 	

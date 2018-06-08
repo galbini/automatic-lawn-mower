@@ -5,8 +5,12 @@ package com.mowitnow.automaticlawnmower;
  *
  */
 public enum Orientation {
-	N, //North
-	E, //East
-	W, //West
-	S  //South
+	/** North */
+	N,
+	/** East */
+	E, 
+	/** West */
+	W, 
+	/** South */
+	S 
 }

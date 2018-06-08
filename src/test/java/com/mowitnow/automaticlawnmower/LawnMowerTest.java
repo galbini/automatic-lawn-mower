@@ -1,13 +1,15 @@
 package com.mowitnow.automaticlawnmower;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
 
 import com.mowitnow.automaticlawnmower.Instruction.InstructionType;
+import com.mowitnow.automaticlawnmower.file.FileParser;
 import com.mowitnow.automaticlawnmower.instruction.InstructionFactory;
 
 public class LawnMowerTest {
@@ -113,6 +115,21 @@ public class LawnMowerTest {
 		assertEquals(Integer.valueOf(4), lastPosition.getX());
 		assertEquals(Integer.valueOf(1), lastPosition.getY());
 		assertEquals(Orientation.E, lastPosition.getOrientation());		
+	}
+	
+	@Test
+	public void testTwoMowerButTheSecondOccupeTheLastPositionOfTheFirst() {
+		
+		try{
+    		FileParser parser = new FileParser(Paths.get("src/test/data-test-2.txt"));
+    		List<LawnMower> l = parser.getLawnMowers();
+    		
+    		assertEquals("1 2 N",l.get(0).run().toString());
+    		assertEquals("3 5 N",l.get(1).run().toString());
+    		
+    	}catch(Exception e){
+    		fail(e.getMessage());
+    	}    
 	}
 
 }

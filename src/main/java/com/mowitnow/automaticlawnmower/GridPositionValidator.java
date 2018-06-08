@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Use to valid if one position is inside the grid and  is not occupied by another lawn mower.
+ * GridPositionValidator is used to valid if one position is inside the grid and is not occupied by another lawn mower.
  * @author galbini
  *
  */

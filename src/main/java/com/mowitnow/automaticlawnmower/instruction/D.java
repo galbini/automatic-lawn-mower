@@ -4,11 +4,13 @@ import com.mowitnow.automaticlawnmower.GridPosition;
 import com.mowitnow.automaticlawnmower.Instruction;
 
 /**
- * turns mower to the right with a 90°
- * N to E
- * E to S
- * S to W
- * W to N
+ * Turns mower to the right with a 90°
+ * <ul>
+ * <li>N to E
+ * <li>E to S
+ * <li>S to W
+ * <li>W to N
+ * </ul>
  * @author galbini
  *
  */

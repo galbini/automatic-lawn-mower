@@ -5,11 +5,13 @@ import com.mowitnow.automaticlawnmower.instruction.D;
 import com.mowitnow.automaticlawnmower.instruction.G;
 
 /**
- * An instruction is an order to the lawn mower.
+ * An instruction is an order to the lawn mower.<br>
  * There are 3 type of instructions
- * 	D : turns mower to the right with a 90°
- *  G : turns mower to the left with a 90°
- *  A : moves mower of one box in the direction it faces
+ * <ul>
+ * 	<li>D : turns mower to the right with a 90°
+ *  <li>G : turns mower to the left with a 90°
+ *  <li>A : moves mower of one box in the direction it faces
+ *  </ul>
  *  @see A
  *  @see D
  *  @see G

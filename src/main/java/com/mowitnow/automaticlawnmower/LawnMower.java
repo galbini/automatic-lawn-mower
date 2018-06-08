@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * Lawn mower used to mow a rectangular surface divided in a grid.
+ * Lawn mower used to mow a rectangular surface divided in a grid.<br>
  * Lawn mower has a position in the grid and a list of instructions
  * @see Instruction
  * @see GridPosition
@@ -53,7 +53,7 @@ public class LawnMower {
 				validator.removeUnusedCoordinate(oldPosition);
 				
 			}else{
-				logger.warning("Position is not valid "+newPosition.toString()+" keep on the current position");
+				logger.warning("The new position "+newPosition.toString()+" is not valid, keep on the current position");
 				//if position is not valid, mower keep at the current position and execute next instruction
 			}
 		});

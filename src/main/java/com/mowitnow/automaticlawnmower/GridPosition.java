@@ -2,9 +2,11 @@ package com.mowitnow.automaticlawnmower;
 
 /**
  * The position on the grid
- * x: the horizontal coordinate
- * y: the vertical coordinate
- * orientation: the orientation according to English cardinal notation (N,E,W,S)
+ * <ul>
+ * <li>x: the horizontal coordinate
+ * <li>y: the vertical coordinate
+ * <li>orientation: the orientation according to English cardinal notation (N,E,W,S)
+ * </ul>
  * @author galbini
  *
  */
