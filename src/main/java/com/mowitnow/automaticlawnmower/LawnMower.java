@@ -35,6 +35,8 @@ public class LawnMower {
 	
 	/**
 	 * Execute all the instructions and return the last position on the grid
+	 * At each instruction set the new position in GridPositionValidator and remove the previous
+	 * @see GridPositionValidator
 	 * @return the last grid position
 	 */
 	public GridPosition run(){

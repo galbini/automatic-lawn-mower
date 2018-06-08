@@ -28,7 +28,7 @@ public class GridPositionValidator {
 	}
 	/**
 	 * Validate if the new grid position if not outside the grid and not used by another mower.
-	 * Need to compare with the current position in case on only change orientation to not reject the new position.
+	 * Need to compare with the current position in case we change only the  orientation.
 	 * 
 	 * @param currentPosition the current position
 	 * @param newPosition the position need check
