@@ -11,7 +11,7 @@ This project is a Gradle project to play with several automatic lawn mowers.
 gradle run -Pfile=src/test/data-test.txt
 ```
 ### Gradle output
-The last position of each lawn mowers
+The last position of each lawn mowers defined in the file
 
 ```script
 > Task :run
