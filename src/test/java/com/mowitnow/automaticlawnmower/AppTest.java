@@ -10,7 +10,7 @@ public class AppTest {
 	public void testOK() {
 		
 			App app = new App();
-			assertEquals(Integer.valueOf(1), Integer.valueOf(app.run("src/test/data-test.txt")));
+			assertEquals(Integer.valueOf(0), Integer.valueOf(app.run("src/test/data-test.txt")));
 			
 	}
 	
