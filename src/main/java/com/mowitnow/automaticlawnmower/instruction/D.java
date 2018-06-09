@@ -4,7 +4,7 @@ import com.mowitnow.automaticlawnmower.GridPosition;
 import com.mowitnow.automaticlawnmower.Instruction;
 
 /**
- * Turns mower to the right with a 90°
+ * These instruction turns lawn mower to the right with a 90°.<br>
  * <ul>
  * <li>N to E
  * <li>E to S
@@ -23,6 +23,6 @@ public class D implements Instruction {
 	@Override
 	public GridPosition nextPosition(GridPosition position) {
 		if( position == null ) throw new IllegalArgumentException("position cannot be null");
-		return new GridPosition(position.getX(), position.getY(), InstructionHelpers.getDMovements().get(position.getOrientation()));
+		return new GridPosition(position.getX(), position.getY(), InstructionHelper.getDMovements().get(position.getOrientation()));
 	}
 }

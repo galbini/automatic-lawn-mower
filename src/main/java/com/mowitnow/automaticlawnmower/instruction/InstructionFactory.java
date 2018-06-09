@@ -3,8 +3,10 @@ package com.mowitnow.automaticlawnmower.instruction;
 import com.mowitnow.automaticlawnmower.Instruction;
 import com.mowitnow.automaticlawnmower.Instruction.InstructionType;
 /**
- * Instruction factory based on enum InstructionType
+ * Instruction factory based on Enum InstructionType.
  * 
+ * @see Instruction
+ * @see InstructionType
  * @author galbini
  *
  */

@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import com.mowitnow.automaticlawnmower.file.FileParser;
 
 /**
- * App is the application launch when used command line
+ * App is the application launched when used command line
  * @author galbini
  *
  */
@@ -43,8 +43,8 @@ public class App {
 
     
     /**
-     * Load the file, create mowers and run instructions for each mower
-     * @param filePath the path to file with data
+     * Load the file, create mowers and run instructions for each mower.
+     * @param filePath the path to file with mower instructions
      * @return 0 if all is good otherwise -1
      */
     public int run(String filePath){

@@ -1,6 +1,6 @@
 package com.mowitnow.automaticlawnmower;
 /**
- * the different value for the orientation.
+ * The different value of the orientation according to English cardinal notation.
  * @author galbini
  *
  */

@@ -45,8 +45,8 @@ public class GridPositionValidator {
 	}
 	
 	/**
-	 * Add to a set the last position of a mower
-	 * @param position the last position of a mower
+	 * Add to a set the position occupied by a lawn mower.
+	 * @param position the current position of a lawn mower.
 	 */
 	public void addUsedCoordinate(GridPosition position){
 		if(position == null) throw new IllegalArgumentException("position cannot be null");
@@ -58,8 +58,8 @@ public class GridPositionValidator {
 		return position.getX()+"-"+position.getY();
 	}
 	/**
-	 * Remove an unused position
-	 * @param position the old position
+	 * Remove an unused position.
+	 * @param position the previous position of a lawn mower.
 	 */
 	public void removeUnusedCoordinate(GridPosition position) {
 		if(position == null) throw new IllegalArgumentException("position cannot be null");

@@ -1,7 +1,7 @@
 package com.mowitnow.automaticlawnmower;
 
 /**
- * The position on the grid
+ * The position on the virtual grid on the lawn
  * <ul>
  * <li>x: the horizontal coordinate
  * <li>y: the vertical coordinate

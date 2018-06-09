@@ -21,11 +21,11 @@ import com.mowitnow.automaticlawnmower.Orientation;
 import com.mowitnow.automaticlawnmower.instruction.InstructionFactory;
 
 /**
- * Parse the content of a file and produce lawn mowers<br><br>
+ * Parse the file content and create lawn mowers.<br><br>
  * 
- * The first line of the file is the top right corner of the grid<br>
+ * The first line of the file is the top right corner of the virtual grid<br>
  * The next two lines are for define one lawn mower.<br>
- * The first is the start position and the second is all instructions need to be execute.<br>
+ * The first line is the start position and the second line contains all instructions need to be execute.<br>
  * Example : <br>
  * 5 5 <br>
  * 1 2 N <br>
