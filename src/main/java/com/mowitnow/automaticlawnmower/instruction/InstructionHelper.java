@@ -5,11 +5,12 @@ import java.util.Map;
 
 import com.mowitnow.automaticlawnmower.Orientation;
 /**
- * Contain the orientation movement for d (right turn) and g (left turn)
+ * Helper to select the next orientation.<br>
+ * D (right turn) and G (left turn).
  * @author galbini
  *
  */
-public class InstructionHelpers {
+public class InstructionHelper {
 	
 	private static Map<Orientation, Orientation> dMovements;
 	private static Map<Orientation, Orientation> gMovements;
