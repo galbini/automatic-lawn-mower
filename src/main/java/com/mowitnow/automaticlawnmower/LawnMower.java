@@ -53,7 +53,7 @@ public class LawnMower {
 				validator.removeUnusedCoordinate(oldPosition);
 				
 			}else{
-				logger.warning("The new position "+newPosition.toString()+" is not valid, keep on the current position");
+				logger.warning("The new position "+newPosition.toString()+" is not valid, the lawn mower remain on the current position");
 				//if position is not valid, mower keep at the current position and execute next instruction
 			}
 		});

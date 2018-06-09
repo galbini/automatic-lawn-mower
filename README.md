@@ -1,8 +1,9 @@
 ## Automatic lawn mowers
 
 This project is a Gradle project to play with several automatic lawn mowers.
-The automatic lawn mowers move on a grid where bottom left corner is (0,0) and the top right corner is defined in a file.
-The automatic lawn mowers does not quit the grid and avoid the busy places.
+The automatic lawn mowers move on a virtual grid where bottom left corner is (0,0) and the top right corner is defined in a file.
+The automatic lawn mowers must not quit the virtual grid and must avoid the busy places.
+
 
 ### Prerequisite
 * Java 8 or higher
