@@ -24,7 +24,7 @@ public class App {
     		App app = new App();
     		status = app.run(args[0]);
     		if(status == 0){
-    			logger.info(app.getFinalMessage());
+    			System.out.print(app.getFinalMessage());
     		}else{
     			logger.severe(app.getFinalMessage());
     		}
@@ -49,10 +49,13 @@ public class App {
      */
     public int run(String filePath){
     	try{
+    		StringBuffer sb = new StringBuffer();
+    		sb.append("Final lawn mower position(s):\n");
     		FileParser parser = new FileParser(Paths.get(filePath));
     		parser.getLawnMowers().forEach(m -> {
-    			System.out.println(m.run().toString());    			
+    			sb.append(m.run().toString()).append("\n");    			
     		});
+    		finalMessage = sb.toString();
         	return 0;
     	}catch(Exception e){
     		finalMessage = "Problem during execution : "+e.getMessage();

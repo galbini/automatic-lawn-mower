@@ -19,6 +19,7 @@ Display the last position of each lawn mowers defined in the file
 
 ```script
 > Task :run
+Final lawn mower position(s):
 1 3 N
 5 1 E
 ```

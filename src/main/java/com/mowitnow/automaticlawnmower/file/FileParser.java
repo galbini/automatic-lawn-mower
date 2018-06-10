@@ -99,10 +99,10 @@ public class FileParser {
 			String[] tmp1 = mowerFirstPosition.split("\\s",3);
 			GridPosition initialPosition = new GridPosition(Integer.valueOf(tmp1[0]), Integer.valueOf(tmp1[1]), Orientation.valueOf(tmp1[2]));
 			
-			List<Instruction> instructions = Arrays.stream(mowerInstructions.split(""))
-			        	.map(c -> InstructionFactory.getInstruction(InstructionType.valueOf(c)))
-			        	.collect(Collectors.toList());
-			
+			List<Instruction> instructions = mowerInstructions.chars()
+		        	.mapToObj(c -> Character.toString((char)c))
+		        	.map(s -> InstructionFactory.getInstruction(InstructionType.valueOf(s)))
+		        	.collect(Collectors.toList());
 			lawnMowers.add(new LawnMower(initialPosition, instructions, validator));
 		}
 		
