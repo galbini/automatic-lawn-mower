@@ -55,14 +55,13 @@ public class InstructionATest {
 
 	@Test
 	public void testNull(){
-		boolean exception = false;
 		try{
 			Instruction a = InstructionFactory.getInstruction(InstructionType.A);
 			a.nextPosition(null);
+			fail("not throw IllegalArgumentException");
 		}catch(IllegalArgumentException e){
-			exception = true;
 			assertEquals("position cannot be null", e.getMessage());
 		}
-		if(!exception)fail("not throw IllegalArgumentException");
+		
 	}
 }

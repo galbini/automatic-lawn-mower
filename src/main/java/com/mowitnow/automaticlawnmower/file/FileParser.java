@@ -5,8 +5,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -63,8 +63,7 @@ public class FileParser {
 	
 	public List<LawnMower> getLawnMowers() throws FileException {
 		if(lawnMowers == null){
-			lawnMowers = new ArrayList<>();
-			validateContentFileAndComputeMowers();			
+			lawnMowers = validateContentFileAndComputeMowers();			
 		}
 		
 		return lawnMowers;
@@ -83,36 +82,50 @@ public class FileParser {
         return contentBuilder.toString();
     }
 
-	private void validateContentFileAndComputeMowers() throws FileException {
+	private final Pattern firstLinePattern = Pattern.compile("\\d \\d");
+	private final Pattern firstPositionPattern = Pattern.compile("\\d \\d [NESW]");
+	private final Pattern instructionPattern = Pattern.compile("[ADG]+");
+	
+	
+	private List<LawnMower> validateContentFileAndComputeMowers() throws FileException {
 		String[] lines = fileContent.split("\n");
 		
-		if(!lines[0].matches("\\d \\d"))throw new FileException("First line does not have the good format "+lines[0]);
+		if(lines.length % 2 != 1)throw new FileException("Incomplete file, see documentation, file format section");
+		if(!firstLinePattern.matcher(lines[0]).matches())throw new FileException("First line does not have the good format: "+lines[0]);
 		String[] topRightCoordinates = lines[0].split("\\s",2);
 		GridPositionValidator validator = new GridPositionValidator(Integer.valueOf(topRightCoordinates[0]), Integer.valueOf(topRightCoordinates[1]));
-		
-		for(int i = 1; i < lines.length; i = i+2){
+		//TODO may be check all the file before throw a FileException
+		StringBuffer errors = new StringBuffer();
+		List<LawnMower> lawnMowers = new ArrayList<>((lines.length-1)/2);
+		for(int i = 1; i+1 < lines.length; i = i+2){
+			StringBuffer tmpErrors = new StringBuffer();
 			String mowerFirstPosition = lines[i];
 			String mowerInstructions = lines[i+1];
 			
-			if(!mowerFirstPosition.matches("\\d \\d [NESW]"))throw new FileException("First grid position at "+(i+1)+ " does not have the good format "+lines[i]);
-			if(!mowerInstructions.matches("[ADG]*"))throw new FileException("Instructions at "+(i+2)+ " does not have the good format "+lines[i+1]);
-			String[] tmp1 = mowerFirstPosition.split("\\s",3);
-			GridPosition initialPosition = new GridPosition(Integer.valueOf(tmp1[0]), Integer.valueOf(tmp1[1]), Orientation.valueOf(tmp1[2]));
+			if(!firstPositionPattern.matcher(mowerFirstPosition).matches())addError(tmpErrors, "First grid position at line "+(i+1)+ " does not have the good format: "+lines[i]);
+			if(!instructionPattern.matcher(mowerInstructions).matches())addError(tmpErrors, "Instructions at line "+(i+2)+ " does not have the good format: "+lines[i+1]);
 			
-			List<Instruction> instructions = mowerInstructions.chars()
-		        	.mapToObj(c -> Character.toString((char)c))
-		        	.map(s -> InstructionFactory.getInstruction(InstructionType.valueOf(s)))
-		        	.collect(Collectors.toList());
-			lawnMowers.add(new LawnMower(initialPosition, instructions, validator));
+			if(tmpErrors.length() == 0) {
+				String[] tmp1 = mowerFirstPosition.split("\\s",3);
+				GridPosition initialPosition = new GridPosition(Integer.valueOf(tmp1[0]), Integer.valueOf(tmp1[1]), Orientation.valueOf(tmp1[2]));
+				
+				List<Instruction> instructions = mowerInstructions.chars()
+			        	.mapToObj(c -> Character.toString((char)c))
+			        	.map(s -> InstructionFactory.getInstruction(InstructionType.valueOf(s)))
+			        	.collect(Collectors.toList());
+				lawnMowers.add(new LawnMower(initialPosition, instructions, validator));
+			}else {
+				addError(errors, tmpErrors.toString());
+			}
 		}
+		if(errors.length() > 0)throw new FileException(errors.toString());
+		return lawnMowers;
+	}
+
+	private void addError(StringBuffer tmpErrors, String errorMsg) {
+		if(tmpErrors.length() > 0)tmpErrors.append("\n");
+		tmpErrors.append(errorMsg);
 		
 	}
 
-
-	private void computeLawnMowers() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 }

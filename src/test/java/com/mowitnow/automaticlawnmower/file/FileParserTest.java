@@ -16,7 +16,7 @@ public class FileParserTest {
 	public void testLoadNotExistFileApp() {
 		try{
 			FileParser parser = new FileParser(Paths.get("src/data-test.txt") );
-			
+			fail("missing exception");
 		}catch(Exception e){
 			assertTrue(e.getMessage().startsWith("java.nio.file.NoSuchFileException"));
 		}		
@@ -29,6 +29,7 @@ public class FileParserTest {
 		
 		try{
 			FileParser parser = new FileParser(Paths.get("src/test/data-test-empty.txt"));
+			fail("missing exception");
 		}catch(Exception e){
 			assertTrue(e.getMessage().startsWith("file content is empty"));
 		}		
@@ -40,7 +41,7 @@ public class FileParserTest {
 		try{
 			FileParser parser = new FileParser(Paths.get("src/test/data-test.txt"));
 		}catch(Exception e){
-			assertTrue(e.getMessage().startsWith("file content is empty"));
+			fail(e.getMessage());
 		}	
 		
 		
@@ -52,8 +53,9 @@ public class FileParserTest {
 		FileParser parser = new FileParser("F R\n");
 		try{
 			parser.getLawnMowers();
+			fail("missing exception");
 		}catch(FileException e){
-			assertTrue(e.getMessage().startsWith("First line does not have the good format "));
+			assertTrue(e.getMessage().startsWith("First line does not have the good format: "));
 		}
 		
 	}
@@ -74,6 +76,7 @@ public class FileParserTest {
 		FileParser parser = new FileParser("5 5\n5 1 D\nAAAA");
 		try{
 			parser.getLawnMowers();
+			fail("missing exception");
 		}catch(FileException e){
 			assertTrue(e.getMessage().startsWith("First grid position at "));
 		}
@@ -96,8 +99,34 @@ public class FileParserTest {
 		FileParser parser = new FileParser("5 5\n5 1 N\nAAAA\n4 6 E\nGGGGF");
 		try{
 			parser.getLawnMowers();
+			fail("missing exception");
 		}catch(FileException e){
-			assertTrue(e.getMessage().matches("Instructions at \\d does not have the good format GGGGF"));
+			assertTrue(e.getMessage().matches("Instructions at line \\d does not have the good format: GGGGF"));
+		}
+		
+	}
+	
+	@Test
+	public void testSeveralError() {
+		FileParser parser = new FileParser("5 5\n5 1 Z\nAAAA\n4 6 E\nGGGGF");
+		try{
+			parser.getLawnMowers();
+			fail("missing exception");
+		}catch(FileException e){
+			assertTrue(e.getMessage().matches("First grid position at line 2 does not have the good format: 5 1 Z\n"
+					+ "Instructions at line 5 does not have the good format: GGGGF"));
+		}
+		
+	}
+	
+	@Test
+	public void testIncompleteFile() {
+		FileParser parser = new FileParser("5 5\n5 1 N\nAAAA\n4 6 E\n\n");
+		try{
+			parser.getLawnMowers();
+			fail("missing exception");
+		}catch(FileException e){
+			assertTrue(e.getMessage().matches("Incomplete file, see documentation, file format section"));
 		}
 		
 	}
@@ -113,5 +142,6 @@ public class FileParserTest {
 		}
 		
 	}
-
+	
+	
 }

@@ -24,13 +24,13 @@ public class App {
     		App app = new App();
     		status = app.run(args[0]);
     		if(status == 0){
-    			System.out.print(app.getFinalMessage());
+    			System.out.println(app.getFinalMessage());
     		}else{
-    			logger.severe(app.getFinalMessage());
+    			System.err.println(app.getFinalMessage());
     		}
     		
     	}catch (Exception e) {
-			logger.severe("Problem during execution "+e.getMessage());
+    		System.err.println("Problem during execution:\n"+e.getMessage());
 			status = -1;
 		}
     	System.exit(status);
@@ -58,7 +58,7 @@ public class App {
     		finalMessage = sb.toString();
         	return 0;
     	}catch(Exception e){
-    		finalMessage = "Problem during execution : "+e.getMessage();
+    		finalMessage = "Problem during execution:\n"+e.getMessage();
     		return 1;
     	}    		    	
     }
